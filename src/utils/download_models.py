@@ -1,5 +1,5 @@
 from transformers import pipeline
-from config.config import Config
+from src.config import Config
 
 config = Config()
 
