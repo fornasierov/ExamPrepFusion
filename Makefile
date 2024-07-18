@@ -2,6 +2,9 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
+download_models:
+	python -m src.utils.download_models
+
 test:
 	python -m pytest -vv --cov=src tests/*.py
 
@@ -16,4 +19,4 @@ refactor: format lint
 deploy:
 	#deploy goes here
 		
-all: install lint test format deploy
+ci_all: install lint test format deploy

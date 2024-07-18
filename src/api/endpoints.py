@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 from pydantic import BaseModel
 from transformers import pipeline
+from src.api.models import summarizer
 
-app = FastAPI()
+router = APIRouter()
 
 
 class ExamPrepRequest(BaseModel):
@@ -13,16 +14,13 @@ class ExamPrepRequest(BaseModel):
     guidelines: list[str]
 
 
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-
-
-@app.post("/summarize/")
+@router.post("/summarize/")
 def summarize_prep(
     request: ExamPrepRequest,
     max_length: int = 130,
     min_length: int = 30,
     do_sample: bool = False,
-) -> str:
+) -> dict:
     """
     Summarize exam preparation guidelines.
     """
@@ -31,11 +29,3 @@ def summarize_prep(
         combined_text, max_length=max_length, min_length=min_length, do_sample=do_sample
     )
     return {"summary": summary[0]["summary_text"]}
-
-
-@app.get("/")
-def read_root() -> dict:
-    """
-    Welcome message.
-    """
-    return {"message": "Welcome to Exam Prep Summarization API!"}
