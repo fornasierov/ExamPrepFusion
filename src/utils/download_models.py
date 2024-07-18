@@ -3,7 +3,7 @@ from config.config import Config
 
 config = Config()
 
-for model_name in config.models:
+for model_name in config.models_to_download:
     pipeline(
         config.task,
         model=model_name,
