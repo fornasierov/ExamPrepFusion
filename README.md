@@ -6,3 +6,5 @@ ExamPrepFusion is a Python API designed to streamline exam preparation by using 
 - BERT: bert-base-multilingual-cased
 - GPT: gpt2
 - Sentence Transformers: distiluse-base-multilingual-cased
+
+Default HugginFace cache location: `~/.cache/huggingface/hub/`

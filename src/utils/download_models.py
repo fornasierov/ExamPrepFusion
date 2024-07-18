@@ -1,3 +1,4 @@
+import os
 from transformers import pipeline
 from src.config import Config
 
@@ -8,7 +9,6 @@ for model_name in config.models_to_download:
         config.task,
         model=model_name,
         framework=config.framework,
-        cache_dir=config.cache_dir,
     )
 
 print("Models downloaded successfully!")
