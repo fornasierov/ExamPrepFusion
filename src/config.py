@@ -1,6 +1,3 @@
-import os, sys
-
-
 class Config:
     models_to_download = [
         "bert-base-multilingual-cased",
