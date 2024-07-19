@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from transformers import pipeline
 from src.api.models import summarizer
 
 router = APIRouter()
@@ -23,6 +22,22 @@ def summarize_prep(
 ) -> dict:
     """
     Summarize exam preparation guidelines.
+
+    Parameters:
+    ----------
+    request: ExamPrepRequest
+        Exam preparation guidelines.
+    max_length: int
+        Maximum length of the summary.
+    min_length: int
+        Minimum length of the summary.
+    do_sample: bool
+        Whether to use sampling for the summary.
+
+    Returns:
+    -------
+    dict
+        Summary of the exam preparation guidelines.
     """
     combined_text = " ".join(request.guidelines)
     summary = summarizer(
