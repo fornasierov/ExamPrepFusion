@@ -8,3 +8,5 @@ ExamPrepFusion is a Python API designed to streamline exam preparation by using 
 - Sentence Transformers: distiluse-base-multilingual-cased
 
 Default HugginFace cache location: `~/.cache/huggingface/hub/`
+
+[![CI Pipeline](https://github.com/fornasierov/ExamPrepFusion/actions/workflows/ci.yml/badge.svg)](https://github.com/fornasierov/ExamPrepFusion/actions/workflows/ci.yml)
